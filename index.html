@@ -66,10 +66,6 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友鏈</a>
-    			
-            
-    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">關於我</a>
     			
             
@@ -147,6 +143,68 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-hexo-avatar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/03/hexo-avatar/">hexo yilia 頭像問題</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/03/hexo-avatar/" class="archive-article-date">
+  	<time datetime="2020-12-03T10:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/03/hexo-avatar/">展開全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -277,7 +335,6 @@
 
 <p>​    <a target="_blank" rel="noopener" href="https://www.google.com.tw/">Google</a></p>
 <h2 id="10-圖片"><a href="#10-圖片" class="headerlink" title="10.圖片"></a>10.圖片</h2><p>圖片也可以放在文字段落之中（與 HTML 中的 img 標籤邏輯一致），不過大多情況下會將圖片作為獨立區塊使用，</p>
-<p>如果圖片不在本地資料夾，使用網址的話，也只會在網頁上顯示圖片。</p>
 <p>圖片也與連結結構接近，只不過前方多了 <code>!</code>：</p>
 <ul>
 <li><code>![ ]</code>：與連結結構接近，但前方緊貼著 <code>!</code> 符號。中括號的內容也並非必填，其文字內容通常作為 hover 後的提示文字或作為 SEO 增強使用。</li>
@@ -285,7 +342,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Mackdown](https:<span class="comment">//www.google.com/url?sa=i&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMarkdown&amp;psig=AOvVaw21zAQL_wZFOXZ5Qq_tTAqI&amp;ust=1607069540698000&amp;source=images&amp;cd=vfe&amp;ved=0CAIQjRxqFwoTCJiOgduuse0CFQAAAAAdAAAAABAD)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://www.google.com/url?sa=i&url=https://en.wikipedia.org/wiki/Markdown&psig=AOvVaw21zAQL_wZFOXZ5Qq_tTAqI&ust=1607069540698000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiOgduuse0CFQAAAAAdAAAAABAD" alt="Mackdown"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png" alt="Mackdown"></p>
 
       
 
@@ -457,25 +514,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友鏈</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">關於我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">關於我</a></li>
       
         
     </ul>
@@ -539,43 +588,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">關關難過關關過&lt;br&gt;一起加油吧！</div>
   	  	
     	</section>
     
