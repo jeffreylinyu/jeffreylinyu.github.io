@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="LinYu">
 <meta property="og:description" content="前言​        在編寫Mysql時，常常會需要新增或刪除表中的數據，但這樣往往會造成表中的ID順序錯亂，本文將介紹解決方法。    解決辦法加入以下SQL12ALTER table bookstore.books drop bookID;#刪除以亂掉IDALTER TABLE bookstore.books add bookID MEDIUMINT( 8 ) NOT NULL AUTO_IN">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//tableID.jpg">
+<meta property="og:image" content="http://example.com/images/tableID.jpg">
 <meta property="og:image" content="http://example.com/.com//12/04/mysql-id1/tableID.jpg">
 <meta property="article:published_time" content="2020-12-04T13:30:18.000Z">
-<meta property="article:modified_time" content="2020-12-04T13:48:52.053Z">
+<meta property="article:modified_time" content="2020-12-04T14:00:14.471Z">
 <meta property="article:author" content="LinYu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//tableID.jpg">
+<meta name="twitter:image" content="http://example.com/images/tableID.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinYu" type="application/atom+xml">
   
@@ -180,7 +180,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在編寫Mysql時，常常會需要新增或刪除表中的數據，但這樣往往會造成表中的ID順序錯亂，本文將介紹解決方法。</p>
-<p><img src="/.com//tableID.jpg" alt="why"></p>
+<p><img src="/images/tableID.jpg" alt="why"></p>
 <img src="/.com//12/04/mysql-id1/tableID.jpg" class title="This is an example image">
 
 <h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><h3 id="加入以下SQL"><a href="#加入以下SQL" class="headerlink" title="加入以下SQL"></a>加入以下SQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER table bookstore.books drop bookID;#刪除以亂掉ID</span><br><span class="line">ALTER TABLE bookstore.books add bookID MEDIUMINT( 8 ) NOT NULL AUTO_INCREMENT FIRST ,ADD PRIMARY KEY(bookId);#重新建立新bookID</span><br></pre></td></tr></table></figure>
