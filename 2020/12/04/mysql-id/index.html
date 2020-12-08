@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/tableID.jpg">
 <meta property="article:published_time" content="2020-12-04T13:30:18.000Z">
-<meta property="article:modified_time" content="2020-12-04T14:44:35.504Z">
+<meta property="article:modified_time" content="2020-12-05T15:52:16.200Z">
 <meta property="article:author" content="LinYu">
 <meta property="article:tag" content="Mysql">
 <meta property="article:tag" content="SpringMVC">
@@ -185,7 +185,7 @@
 <p><img src="/images/tableID.jpg" alt="tableID"></p>
 <a id="more"></a>
 
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><h3 id="加入以下SQL"><a href="#加入以下SQL" class="headerlink" title="加入以下SQL"></a>加入以下SQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER table bookstore.books drop bookID;#刪除已亂掉ID</span><br><span class="line">ALTER TABLE bookstore.books add bookID MEDIUMINT( 8 ) NOT NULL AUTO_INCREMENT FIRST ,ADD PRIMARY KEY(bookId);#重新建立新bookID</span><br></pre></td></tr></table></figure>
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><h3 id="加入以下SQL"><a href="#加入以下SQL" class="headerlink" title="加入以下SQL"></a>加入以下SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> bookstore.books <span class="keyword">drop</span> bookID;<span class="comment">#刪除已亂掉ID</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> bookstore.books <span class="keyword">add</span> bookID MEDIUMINT( <span class="number">8</span> ) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">FIRST</span> ,<span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span>(bookId);<span class="comment">#重新建立新bookID</span></span><br></pre></td></tr></table></figure>
 
 <p>先刪除原先亂掉的ID欄位，再新增一個後，利用AUTO_INCREMENT（自動遞增）補上每一行的id。</p>
 <p><strong>關鍵字用意</strong>：</p>
@@ -243,6 +243,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/12/08/interceptor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringMVC 攔截器(interceptor)
+        
+      </div>
+    </a>
   
   
     <a href="/2020/12/02/Markdown/" id="article-nav-older" class="article-nav-link-wrap">
@@ -398,6 +407,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">攔截器</a>
               </li>
             
             <div class="clearfix"></div>

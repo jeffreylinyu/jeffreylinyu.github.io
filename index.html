@@ -144,6 +144,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-interceptor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/08/interceptor/">SpringMVC 攔截器(interceptor)</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        
+        <a href="/2020/12/08/interceptor/" class="archive-article-date">
+  	<time datetime="2020-12-08T10:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>SpringMVC的處理器攔截器類似於Servlet開發中的過濾器Filter，用於對處理器進行預處理和後處理。</p>
+<p>開發者可以自己定義一些攔截器來實現特定的功能。</p>
+<p>過濾器與攔截器的區別：攔截器是AOP思想的具體應用。</p>
+<h3 id="過濾器"><a href="#過濾器" class="headerlink" title="過濾器"></a>過濾器</h3><ul>
+<li><p>servlet規範中的一部分，任何java web工程都可以使用</p>
+</li>
+<li><p>在url-pattern中配置了/*之後，可以對所有要訪問的資源進行攔截</p>
+</li>
+</ul>
+<h3 id="攔截器"><a href="#攔截器" class="headerlink" title="攔截器"></a>攔截器</h3><ul>
+<li><p>攔截器是SpringMVC框架自己的，只有使用了SpringMVC框架的工程才能使用</p>
+</li>
+<li><p>攔截器只會攔截訪問的控制器方法， 如果訪問的是jsp/html/css/image/js是不會進行攔截的</p>
+</li>
+</ul>
+<p>​         </p>
+        
+          <a class="article-more-a" href="/2020/12/08/interceptor/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">攔截器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/08/interceptor/">展開全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql-id" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -416,6 +517,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">攔截器</a>
               </li>
             
             <div class="clearfix"></div>

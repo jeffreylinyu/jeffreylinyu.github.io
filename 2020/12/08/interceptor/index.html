@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2020 | LinYu</title>
+  <title>SpringMVC 攔截器(interceptor) | LinYu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LinYu">
-<meta property="og:url" content="http://example.com/archives/2020/index.html">
+  <meta name="description" content="概述SpringMVC的處理器攔截器類似於Servlet開發中的過濾器Filter，用於對處理器進行預處理和後處理。 開發者可以自己定義一些攔截器來實現特定的功能。 過濾器與攔截器的區別：攔截器是AOP思想的具體應用。 過濾器 servlet規範中的一部分，任何java web工程都可以使用  在url-pattern中配置了&#x2F;*之後，可以對所有要訪問的資源進行攔截   攔截器 攔截器是Sprin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC 攔截器(interceptor)">
+<meta property="og:url" content="http://example.com/2020/12/08/interceptor/index.html">
 <meta property="og:site_name" content="LinYu">
+<meta property="og:description" content="概述SpringMVC的處理器攔截器類似於Servlet開發中的過濾器Filter，用於對處理器進行預處理和後處理。 開發者可以自己定義一些攔截器來實現特定的功能。 過濾器與攔截器的區別：攔截器是AOP思想的具體應用。 過濾器 servlet規範中的一部分，任何java web工程都可以使用  在url-pattern中配置了&#x2F;*之後，可以對所有要訪問的資源進行攔截   攔截器 攔截器是Sprin">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-08T10:54:50.000Z">
+<meta property="article:modified_time" content="2020-12-08T11:18:57.021Z">
 <meta property="article:author" content="LinYu">
+<meta property="article:tag" content="SpringMVC">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="攔截器">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LinYu" type="application/atom+xml">
@@ -142,36 +149,86 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-interceptor" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/08/interceptor/" class="archive-article-date">
-  	<time datetime="2020-12-08T10:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/08/interceptor/">SpringMVC 攔截器(interceptor)</a>
+    <h1 class="article-title" itemprop="name">
+      SpringMVC 攔截器(interceptor)
     </h1>
   
 
-        <div class="article-info info-on-right">
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    閱讀數: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
           
+        
+        <a href="/2020/12/08/interceptor/" class="archive-article-date">
+  	<time datetime="2020-12-08T10:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>SpringMVC的處理器攔截器類似於Servlet開發中的過濾器Filter，用於對處理器進行預處理和後處理。</p>
+<p>開發者可以自己定義一些攔截器來實現特定的功能。</p>
+<p>過濾器與攔截器的區別：攔截器是AOP思想的具體應用。</p>
+<h3 id="過濾器"><a href="#過濾器" class="headerlink" title="過濾器"></a>過濾器</h3><ul>
+<li><p>servlet規範中的一部分，任何java web工程都可以使用</p>
+</li>
+<li><p>在url-pattern中配置了/*之後，可以對所有要訪問的資源進行攔截</p>
+</li>
+</ul>
+<h3 id="攔截器"><a href="#攔截器" class="headerlink" title="攔截器"></a>攔截器</h3><ul>
+<li><p>攔截器是SpringMVC框架自己的，只有使用了SpringMVC框架的工程才能使用</p>
+</li>
+<li><p>攔截器只會攔截訪問的控制器方法， 如果訪問的是jsp/html/css/image/js是不會進行攔截的</p>
+</li>
+</ul>
+<p>​         </p>
+<a id="more"></a>
+
+<h2 id="自定義攔截器"><a href="#自定義攔截器" class="headerlink" title="自定義攔截器"></a>自定義攔截器</h2><p>想要自定義攔截器，必須實現 HandlerInterceptor 接口。</p>
+<p>1、新建一個Moudule ， springmvc-07-Interceptor ， 添加web支持</p>
+<p>2、配置web.xml 和 springmvc-servlet.xml 文件</p>
+<p>3、編寫一個攔截器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.interceptor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.HandlerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//在請求處理的方法之前執行</span></span><br><span class="line">   <span class="comment">//如果返回true執行下一個攔截器</span></span><br><span class="line">   <span class="comment">//如果返回false就不執行下一個攔截器</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;------------處理前------------&quot;</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//在請求處理方法執行之后執行</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;------------處理后------------&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//在dispatcherServlet處理后執行,做清理工作.</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;------------清理------------&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4、在springmvc的配置文件中配置拦截器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--關於攔截器的配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--/** 包括路徑及其子路徑--&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--/admin/* 攔截的是/admin/add等等這種 , /admin/add/user不會被攔截--&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--/admin/** 攔截的是/admin/下的所有--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">&quot;/**&quot;</span>/&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--bean配置的就是攔截器--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.kuang.interceptor.MyInterceptor&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>5、編寫一個Controller，接收請求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="comment">//測試攔截器的控制器</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InterceptorController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@RequestMapping(&quot;/interceptor&quot;)</span></span><br><span class="line">   <span class="meta">@ResponseBody</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">testFunction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;控制器中的方法執行了&quot;</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>6、前端 index.jsp</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/interceptor&quot;</span>&gt;</span>攔截器測試<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>7、啟動tomcat 測試一下！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,103 +248,68 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/04/mysql-id/" class="archive-article-date">
-  	<time datetime="2020-12-04T13:30:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/04/mysql-id/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql id問題</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/04/mysql-id/">mysql id問題</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8E%E6%BF%BE%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">過濾器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%94%E6%88%AA%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">攔截器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E7%BE%A9%E6%94%94%E6%88%AA%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">自定義攔截器</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/02/Markdown/" class="archive-article-date">
-  	<time datetime="2020-12-02T14:04:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/02/Markdown/">Markdown語法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -316,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
